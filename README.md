@@ -30,22 +30,24 @@ End-to-end analytics project built using SQL Server, SSIS, and SSRS to analyze p
 3. Open SSRS reports and preview
 
 ## Screenshots
-See the Screenshots folder for output visuals.
-Supply-Chain-and-Inventory-Analytics-System
-│
-├── SQL_Script
-│
-├── SSIS
-│   └── SupplyChain_SSIS.sln
-│
-├── SSRS
-│   └── SupplyChain_SSRS.sln
-│
-├── Screenshots
-│   ├── ETL.png
-│   ├── ProductReport.png
-│   ├── Order Report.png
-│   ├── Inventory Report.png
-│   └── Supplier Report.png
-│
-└── README.md
+SSIS – ETL Pipeline
+![SSIS ETL](Screenshots/ETL.png)
+
+---
+
+### 🔹 Product Report (SSRS)
+![Product Report](Screenshots/ProductReport.png)
+
+---
+
+### 🔹 Order Report (SSRS)
+![Order Report](Screenshots/OrderReport.png)
+
+---
+
+### 🔹 Inventory Report (SSRS)
+![Inventory Report](Screenshots/InventoryReport.png)
+
+
+### 🔹 Supplier Report (SSRS)
+![Supplier Report](Screenshots/SupplierReport.png)
