@@ -31,3 +31,21 @@ End-to-end analytics project built using SQL Server, SSIS, and SSRS to analyze p
 
 ## Screenshots
 See the Screenshots folder for output visuals.
+Supply-Chain-and-Inventory-Analytics-System
+│
+├── SQL_Script
+│
+├── SSIS
+│   └── SupplyChain_SSIS.sln
+│
+├── SSRS
+│   └── SupplyChain_SSRS.sln
+│
+├── Screenshots
+│   ├── ETL.png
+│   ├── ProductReport.png
+│   ├── Order Report.png
+│   ├── Inventory Report.png
+│   └── Supplier Report.png
+│
+└── README.md
