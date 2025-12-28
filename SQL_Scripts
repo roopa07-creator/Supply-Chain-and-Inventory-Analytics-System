@@ -1,0 +1,118 @@
+USE SupplyChainDB;
+GO
+DROP TABLE IF EXISTS Orders;
+DROP TABLE IF EXISTS Inventory;
+DROP TABLE IF EXISTS Suppliers;
+DROP TABLE IF EXISTS Products;
+GO
+CREATE TABLE Products (
+    ProductID INT IDENTITY(1,1) PRIMARY KEY,
+    ProductName NVARCHAR(100),
+    Category NVARCHAR(50),
+    UnitPrice DECIMAL(10,2)
+);
+GO
+CREATE TABLE Suppliers (
+    SupplierID INT IDENTITY(1,1) PRIMARY KEY,
+    SupplierName NVARCHAR(100),
+    ContactNumber NVARCHAR(15),
+    City NVARCHAR(50)
+);
+GO
+CREATE TABLE Inventory (
+    InventoryID INT IDENTITY(1,1) PRIMARY KEY,
+    ProductID INT FOREIGN KEY REFERENCES Products(ProductID),
+    SupplierID INT FOREIGN KEY REFERENCES Suppliers(SupplierID),
+    QuantityInStock INT,
+    LastRestockDate DATE
+);
+GO
+CREATE TABLE Orders (
+    OrderID INT IDENTITY(1,1) PRIMARY KEY,
+    ProductID INT FOREIGN KEY REFERENCES Products(ProductID),
+    QuantityOrdered INT,
+    OrderDate DATE,
+    CustomerName NVARCHAR(100)
+);
+GO
+INSERT INTO Products (ProductName, Category, UnitPrice)
+VALUES 
+('Laptop', 'Electronics', 75000),
+('Mouse', 'Electronics', 500),
+('Desk Chair', 'Furniture', 3500);
+
+INSERT INTO Suppliers (SupplierName, ContactNumber, City)
+VALUES 
+('ABC Traders', '9876543210', 'Bangalore'),
+('TechSupply Co', '9845098450', 'Chennai');
+
+INSERT INTO Inventory (ProductID, SupplierID, QuantityInStock, LastRestockDate)
+VALUES 
+(1, 1, 50, '2025-10-10'),
+(2, 2, 100, '2025-10-12'),
+(3, 1, 20, '2025-10-15');
+INSERT INTO Orders (ProductID, QuantityOrdered, OrderDate, CustomerName)
+VALUES 
+(1, 2, '2025-10-15', 'Sneha Patel'),
+(2, 5, '2025-10-14', 'Rohit Kumar');
+GO
+SELECT * FROM Products;
+SELECT * FROM Suppliers;
+SELECT * FROM Inventory;
+SELECT * FROM Orders;
+USE SupplyChainDB;
+GO
+DELETE FROM Orders;
+DELETE FROM Inventory;
+DELETE FROM Products;
+GO
+DBCC CHECKIDENT ('dbo.Products', RESEED, 0);
+GO
+SELECT * FROM Products;
+INSERT INTO Products (ProductName, Category, UnitPrice)
+VALUES ('Test Product', 'Test', 100);
+SELECT * FROM Products_Report;
+SELECT 
+    o.OrderID,
+    p.ProductName,
+    o.QuantityOrdered,
+    o.OrderDate,
+    p.UnitPrice,
+    (o.QuantityOrdered * p.UnitPrice) AS TotalAmount
+FROM Orders o
+INNER JOIN Products p 
+    ON o.ProductID = p.ProductID;
+    SELECT * FROM Products_Report;
+    INSERT INTO Orders (ProductID, QuantityOrdered, OrderDate, CustomerName)
+VALUES
+(1, 2, GETDATE(), 'Customer A'),
+(1, 3, GETDATE(), 'Customer B'),
+(1, 1, GETDATE(), 'Customer C');
+SELECT * FROM Orders;
+SELECT 
+    o.OrderID,
+    p.ProductName,
+    o.QuantityOrdered,
+    o.OrderDate,
+    p.UnitPrice,
+    o.QuantityOrdered * p.UnitPrice AS TotalAmount
+FROM Orders o
+INNER JOIN Products p
+ON o.ProductID = p.ProductID;
+SELECT * FROM Suppliers;
+INSERT INTO Suppliers (SupplierName, ContactNumber, City)
+VALUES
+('ABC Traders', '9876543210', 'Bangalore'),
+('TechSupply Co', '9845098450', 'Chennai'),
+('Global Parts', '9123456789', 'Hyderabad');
+SELECT * FROM Inventory;
+USE SupplyChainDB;
+GO
+
+INSERT INTO Inventory
+(ProductID, SupplierID, QuantityInStock, LastRestockDate)
+VALUES
+(1, 1, 100, GETDATE()),
+(1, 2, 50,  GETDATE()),
+(1, 3, 75,  GETDATE());
+GO
