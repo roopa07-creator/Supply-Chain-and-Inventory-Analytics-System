@@ -31,23 +31,23 @@ End-to-end analytics project built using SQL Server, SSIS, and SSRS to analyze p
 
 ## Screenshots
 SSIS – ETL Pipeline
-![SSIS ETL](Screenshots/ETL.png)
+![SSIS ETL](Screenshots/ ETL.png)
 
 ---
 
 ### 🔹 Product Report (SSRS)
-![Product Report](Screenshots/ProductReport.png)
+![Product Report](Screenshots/Product Report.png)
 
 ---
 
 ### 🔹 Order Report (SSRS)
-![Order Report](Screenshots/OrderReport.png)
+![Order Report](Screenshots/Order Report.png)
 
 ---
 
 ### 🔹 Inventory Report (SSRS)
-![Inventory Report](Screenshots/InventoryReport.png)
+![Inventory Report](Screenshots/Inventory Report.png)
 
 
 ### 🔹 Supplier Report (SSRS)
-![Supplier Report](Screenshots/SupplierReport.png)
+![Supplier Report](Screenshots/Supplier Report.png)
